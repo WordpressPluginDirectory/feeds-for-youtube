@@ -5,7 +5,7 @@ Support Website: http://smashballoon/youtube-feed/
 Tags: YouTube, YouTube feed, YouTube widget, YouTube channel, YouTube gallery
 Requires at least: 4.1
 Tested up to: 6.4
-Stable tag: 2.1.4
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ The Feeds for YouTube plugin allows you to display customizable YouTube feeds fr
 
 == Description ==
 **Display customizable YouTube channel feeds on your website. Feed YouTube channel content automatically to your website in a powerful and customizable gallery.**
+
+https://www.youtube.com/watch?v=zYHeHelzwVw
 
 ### YouTube Feed Features
 * **Completely Customizable** YouTube feeds - by default inherits your theme's styles
@@ -23,6 +25,8 @@ The Feeds for YouTube plugin allows you to display customizable YouTube feeds fr
 * **Lightning fast** - post caching and minimized YouTube API requests means that your feed loads lightning fast
 * **Infinitely load more** of your videos with the 'Load More' button
 * Built-in easy to use YouTube Feed Widget
+* Support for the Divi builder. Quickly add your feed to a page using a Divi block.
+* Support for Elementor widgets. Embed a YouTube feed using Elementor.
 * Fully internationalized and translatable into any language
 * Includes a header at the top of your feed
 * Enter your own custom CSS or JavaScript for even deeper customization
@@ -38,6 +42,9 @@ For simple step-by-step directions on how to set up the Feeds for YouTube plugin
 * Support is quick, effective, and always happy to help
 * We're dedicated to providing the **most customizable**, **robust** and **well supported** YouTube gallery plugin in the world!
 
+### Performance Optimized
+While other YouTube plugins load a low-performing iframe when your page loads to show YouTube videos, Feeds for YouTube uses the YouTube API to retrieve and display your videos. This means your YouTube videos are loaded lightning fast and won't slow down your visitor's experience with your website. But we don't stop there. Our YouTube plugin also waits until a site visitor interacts with your YouTube feed before adding the video player to the page. This results in visitors loving your site and encouraging them to stick around longer.
+
 ### Feedback or Support
 Customer support is a huge deal to us. We pride ourselves on always providing quick, effective, and courteous support to all of our users. If you're having an issue with our plugin then just let us know and we'll be there to help as soon as possible.  You can either open a ticket on the support forum on [WordPress.org](https://wordpress.org/support/plugin/feeds-for-youtube/ "YouTube Feed Free support forum"), or directly on [our website](https://smashballoon.com/youtube-feed/support/ "YouTube Feed website support form").
 
@@ -46,7 +53,6 @@ If you like the plugin then please consider leaving a review, as it really helps
 ### Pro Version
 For even more feed types and display options, consider upgrading to our [Pro version](http://smashballoon.com/youtube-feed/?utm_source=wordpress&utm_campaign=sby 'Feeds for YouTube Pro') which includes some awesome additional features to help you display your content in even more powerful ways:
 
-* Display YouTube videos from your **favorites list**
 * Integrate the **YouTube Live API** to show live streaming videos on your site.
 * Display a YouTube gallery in a carousel slider
 * Allow **filtering** of videos using keywords in the description or title
@@ -140,28 +146,41 @@ Yes. All feed layouts are completely mobile responsive. Using the plugin's galle
 
 Yes. The plugin will cache all of the posts collected from the API. Your YouTube videos and information about your channel can then be retrieved and used for future page loads.
 
-= How do I find the nickname of channel ID for different channels? =
+= How do I find the YouTube nickname or channel ID for different YouTube channels? =
 
-You can display videos from any channel using the unique YouTube channel ID. This can be found by viewing the channel page on YouTube and looking at the end of the URL. ex: https://www.youtube.com/channel/UC1a2b3c4D5F6g7i8j9k. You can also use the channel nickname.
+You can display videos from any YouTube channel using the unique YouTube channel ID. This can be found by viewing the channel page on YouTube and looking at the end of the URL. ex: https://www.youtube.com/channel/UC1a2b3c4D5F6g7i8j9k. You can also use the channel nickname or enter the YouTube handle when creating a feed.
 
 = Will displaying my YouTube channel affect the time it takes to load the page? =
 
-The plugin has a few features to minimize the impact it has on page load time. For example, iframes for playing YouTube videos are not loaded until the feed is interacted with by a visitor. Thumbnails of your videos are the smallest resolution necessary relative to the size of the feed. Also, these video thumbnails are not loaded until the rest of the content on the page is loaded.
+The plugin has a few features to minimize the impact it has on page load time. For example, iframes for playing YouTube videos are not loaded until the feed is interacted with by a visitor. Thumbnails of your YouTube videos are the smallest resolution necessary relative to the size of the feed. Also, these video thumbnails are not loaded until the rest of the content on the page is loaded.
 
 = How often do new videos from my channel appear in the feed? =
 
-By default, the plugin retrieves new videos for your YouTube gallery once every hour. You can reduce this to as little as 15 minutes if needed. You can even set your feed to update using WordPress cron in the background so the caching process is not relying on the page with your feed being visited.
+By default, the plugin retrieves new videos for your YouTube gallery once every hour. You can reduce this to as little as 15 minutes if needed. You can even set your feed to update using WordPress cron in the background so the caching process is not relying on the page with your YouTube feed being visited.
 
 == Screenshots ==
 
-1. Display multiple feeds and customize each one
-2. Manage your feeds using our handy feed customizer
+1. Display multiple YouTube feeds and customize each one
+2. Manage your YouTube feeds using our handy feed customizer
 3. Powerful features and settings
-4. Feeds fit any screen size without customization needed
+4. YouTube Feeds fit any screen size without customization needed
 5. Several attractive display types to fit your use case
-6. Embed your feed using a shortcode you can copy and paste after you are done creating
+6. Embed your YouTube feed using a shortcode you can copy and paste after you are done creating
 
 == Changelog ==
+= 2.2 =
+* New: Added support for displaying YouTube feeds using an Elementor widget and Divi modules.
+* Fix: Fixed the text and icon alignment in the header when both the subscribers and description were hidden
+* Fix: After clicking a video thumbnail in the gallery layout, site visitors are automatically scrolled to the video player.
+* Fix: JSON feed import feature has been fixed
+* Fix: Settings page link has been added to the plugins page action buttons
+* Fix: Single videos were having incorrect URLs
+* Fix: Single videos were displaying warnings on post previews
+* Fix: Fixed a conflict with WP Engine and the plugin notifications
+* Fix: Deprecated: strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated
+* Code: New action filters added to change post type and status for YouTube single videos
+* Fix: Plugin hardening
+
 = 2.1.4 =
 * Fix: Plugin hardening.
 
@@ -170,9 +189,6 @@ By default, the plugin retrieves new videos for your YouTube gallery once every 
 
 = 2.1.2 =
 * Fix: Plugin hardening.
-* Fix: Fixed slashes being added to some text based settings.
-
-= 2.1.1 =
 * Fix: Removed unused files in the "templates" folder.
 * Fix: Fixed a deprecation notice in PHP 8.1+ "strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated"
 * Fix: Custom text that included single quotes would show with slashes on the front-end of the feed.
