@@ -21,6 +21,7 @@ abstract class BaseSettingPage extends ServiceProvider {
 	protected $template_file = "";
 	protected $menu_position = 0;
 	protected $has_page_restriction = false;
+	protected $menu_position_free_version = 0;
 
 	public function register() {
 		if ( true === $this->has_menu ) {
@@ -102,6 +103,7 @@ abstract class BaseSettingPage extends ServiceProvider {
 			'admin_url'           => admin_url(),
 			'ajax_handler'        => admin_url( 'admin-ajax.php' ),
 			'nonce'               => wp_create_nonce( 'sby-admin' ),
+			'setupPageUrl'      => admin_url( 'admin.php?page=youtube-feed-setup' ),
 			'supportPageUrl'      => admin_url( 'admin.php?page=youtube-feed-support' ),
 			'settingsPageUrl'     => admin_url( 'admin.php?page=youtube-feed-settings' ),
 			'builderUrl'          => admin_url( 'admin.php?page=sby-feed-builder' ),

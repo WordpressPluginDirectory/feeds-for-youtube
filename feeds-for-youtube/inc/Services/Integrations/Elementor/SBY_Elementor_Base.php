@@ -55,7 +55,9 @@ class SBY_Elementor_Base
 
 	public function register_frontend_scripts(){
 
-		$css_file_name = 'sb-youtube.min.css';
+		$css_free_file_name = 'sb-youtube-free.min.css';
+		$css_pro_file_name = 'sb-youtube.min.css';
+		$css_file_name = sby_is_pro() ? $css_pro_file_name : $css_free_file_name;
 
 			wp_enqueue_style(
 				'sby_styles', 
@@ -116,10 +118,13 @@ class SBY_Elementor_Base
 
 	public function register_frontend_styles()
 	{
-		$sby_pro = !sby_is_pro() ? '-free' : ''; 
+		$css_free_file_name = 'sb-youtube-free.min.css';
+		$css_pro_file_name = 'sb-youtube.min.css';
+		$css_file_name = sby_is_pro() ? $css_pro_file_name : $css_free_file_name;
+
 		wp_register_style(
 			'sby-styles',
-			SBY_PLUGIN_URL . 'css/sb-youtube'. $sby_pro .'.min.css',
+			SBY_PLUGIN_URL . 'css/' . $css_file_name,
 			array(),
 			SBYVER
 		);
