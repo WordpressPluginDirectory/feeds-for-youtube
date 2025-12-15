@@ -16,7 +16,7 @@ class WPEngine implements \Smashballoon\Framework\Utilities\PlatformTracking\Pla
      */
     public function filter_sb_hosting_platform($platform)
     {
-        if (method_exists('WpeCommon', 'get_wpe_auth_cookie_value') && !empty(\SmashBalloon\YoutubeFeed\Vendor\WpeCommon::get_wpe_auth_cookie_value())) {
+        if (method_exists('SmashBalloon\YoutubeFeed\Vendor\WpeCommon', 'get_wpe_auth_cookie_value') && !empty(\SmashBalloon\YoutubeFeed\Vendor\WpeCommon::get_wpe_auth_cookie_value())) {
             $platform = 'wpengine';
         }
         return $platform;

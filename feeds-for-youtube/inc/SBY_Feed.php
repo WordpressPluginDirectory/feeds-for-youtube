@@ -4,6 +4,7 @@ namespace SmashBalloon\YouTubeFeed;
 
 use Smashballoon\Customizer\Feed_Builder;
 use SmashBalloon\YouTubeFeed\Services\AdminAjaxService;
+use SmashBalloon\YouTubeFeed\Helpers\Util;
 
 class SBY_Feed
 {
@@ -596,7 +597,7 @@ class SBY_Feed
 		return false;
 	}
 
-	public function make_workaround_connection( $connected_account_for_term, $type, $params ) {
+	public function make_workaround_connection( $connected_account_for_term, $type, $params, $feed_id = '' ) {
 		return $this->make_api_connection( $connected_account_for_term, $type, $params );
 	}
 
@@ -666,7 +667,9 @@ class SBY_Feed
 				if ( ! $this->is_efficient_type( $type ) && $this->is_pageable() ) {
 
 					if ( $this->requires_workaround_connection( $type ) ) {
-						$api_connect_playlist_items = $this->make_workaround_connection( $connected_account_for_term, $type, $params );
+						$feed_id  = !empty($settings['feed']) ? $settings['feed'] : '';
+
+						$api_connect_playlist_items = $this->make_workaround_connection( $connected_account_for_term, $type, $params, $feed_id );
 						$this->add_report( 'Workaround API call made for ' . $term );
 
 					} else {
@@ -1588,7 +1591,7 @@ class SBY_Feed
 		$encoded_options = wp_json_encode( $js_options );
 
 		$js_option_html = '<script type="text/javascript">if (typeof sbyOptions === "undefined") var sbyOptions = ' . $encoded_options . ';</script>';
-		$js_option_html .= "<script type='text/javascript' src='" . trailingslashit( SBY_PLUGIN_URL ) . 'js/sb-youtube.min.js?ver=' . SBYVER . "'></script>";
+		$js_option_html .= "<script type='text/javascript' src='" . Util::getPluginAssets('js', 'sb-youtube') . "'></script>";
 
 		return $js_option_html;
 	}
